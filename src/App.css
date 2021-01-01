@@ -1,38 +1,300 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   text-align: center;
+  /* background-image: url(./assets/chess-3801531_640.jpg); */
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: linear-gradient(227deg, #a554a8 10%, rgb(94 40 231) 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading {
+  font-size: 26px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.input {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+  height: 480px;
+  margin: 3rem auto;
+  padding: 15px 10px;
+  border: 1px solid #111;
+  border-radius: 20px;
+  background: #161a2b;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.todos-container {
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: -18px;
+  overflow: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.todo-container {
+  position: relative;
+  display: flex;
+  height: 38px;
+  width: 90%;
+  margin: 5px 0;
+}
+
+.input-container {
+  display: flex;
+  width: 70%;
+  height: 38px;
+  margin: 25px 0;
+}
+
+.add-todo {
+  text-transform: capitalize;
+  text-align: left;
+  display: inline;
+  width: 95%;
+  height: 38px;
+  font-size: 20px;
+  padding: 0 5px;
+  border: 2px solid #5d0cff;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+.todo {
+  text-align: left;
+  display: inline;
+  width: 100%;
+  height: 38px;
+  font-size: 20px;
+  padding: 0 8px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+.add-btn {
+  border-radius: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+}
+
+.edit-todo {
+  width: 9%;
+  text-align: left;
+  display: inline;
+  position: absolute;
+  bottom: 24px;
+  height: 38px;
+  font-size: 20px;
+  padding: 0 5px;
+  border: 2px solid #5d0cff;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+.scrollfeature {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* edit and delete button on hover */
+.todo-container:hover button {
+  display: block;
+}
+
+.todo-container .edit-btn {
+  position: relative;
+  display: none;
+}
+
+.todo-container .delete-btn {
+  position: relative;
+  display: none;
+}
+
+.todo-container .edit-btn {
+  position: absolute;
+  left: 74%;
+  width: 13%;
+  height: 38px;
+  border: 2px solid wheat;
+  border-radius: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  outline: none;
+}
+
+.todo-container .delete-btn {
+  position: absolute;
+  left: 87%;
+  width: 13%;
+  height: 38px;
+  border: 2px solid wheat;
+  border-radius: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  outline: none;
+}
+
+/* scroll bar */
+.mostly-customized-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+  background-color: rgb(226, 219, 219);
+}
+
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(46, 46, 46);
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    margin: 3rem auto;
+    width: 90%;
+  }
+
+  .add-todo {
+    font-size: 16px;
+    margin: -5px 0;
+  }
+
+  .add-btn {
+    height: 38px;
+    margin: -5px 0;
+  }
+
+  .todo {
+    width: 75%;
+    font-size: 18px;
+    padding: 3px 8px;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  .upd-container {
+    width: 100%;
+  }
+
+  .todo-container .edit-btn {
+    display: block;
+  }
+
+  .todo-container .delete-btn {
+    display: block;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 60%;
+    margin: 3rem auto;
+  }
+
+  .todo {
+    width: 100%;
+    font-size: 19px;
+    padding: 3px 8px;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  .todo:hover {
+    width: 75%;
+  }
+
+  .upd-container {
+    width: 100%;
+  }
+
+  .add-todo {
+    margin: -5px 0;
+  }
+
+  .add-btn {
+    height: 38px;
+    margin: -5px 0;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    background-image: url(./assets/presentation-1454403__340.webp),
+      linear-gradient(227deg, #b650fc 10%, black 84%);
+    /* background-image: url(./assets/presentation-1454403__340.webp),
+      linear-gradient(227deg, #a554a8 10%, rgb(94 40 231) 100%); */
+    background-position: left center;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    margin-right: 70px;
+  }
+
+  .upd-container {
+    width: 100%;
+  }
+
+  .todo {
+    width: 100%;
+    font-size: 19px;
+    padding: 3px 8px;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow-x: auto;
+    text-transform: capitalize;
+  }
+
+  .todo:hover {
+    width: 75%;
+  }
+
+  .add-todo {
+    margin: -5px 0;
+  }
+
+  .add-btn {
+    height: 38px;
+    margin: -5px 0;
   }
 }
